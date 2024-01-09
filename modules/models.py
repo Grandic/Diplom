@@ -15,7 +15,7 @@ class Module(models.Model):
                               **NULLABLE)
 
     def __str__(self):
-        return f'Модуль{self.name}'
+        return f'Модуль:  {self.name}'
 
     class Meta:
         verbose_name = 'Модуль'
