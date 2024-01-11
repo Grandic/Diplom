@@ -10,7 +10,6 @@ NULLABLE = {
 
 class User(AbstractUser):
     """Модель пользователя"""
-    
     username = None
     email = models.EmailField(unique=True, verbose_name='Email')
     name = models.CharField(max_length=50, verbose_name='Name', **NULLABLE)

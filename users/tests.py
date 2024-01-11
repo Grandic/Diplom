@@ -54,8 +54,8 @@ class UserTestCase(APITestCase):
         """Тестирование обновления пользователя"""
 
         self.create_user()
-        response = self.client.patch(f'/users/update/{self.user.id}/', {'email': 'newexample@test.com',
-                                                                        'name': 'test'})
+        response = self.client.patch(f'/users/update/{self.user.id}/',
+                                     {'email': 'newexample@test.com', 'name': 'test'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             response.json(),
