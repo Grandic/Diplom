@@ -17,8 +17,7 @@
     Django 
     Djangorestframework (Фреймоврк)
     DRF-Yasq (Документирование)    
-    Psycopg2 (Работа с базой данных)
-    Pillow
+    Psycopg2 (Работа с базой данных)    
     Pytest
     Redis
     Flake8 (Поиск и уничтожение ошибок)
