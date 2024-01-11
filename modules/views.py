@@ -1,9 +1,8 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-
 from modules.models import Module
 from modules.paginators import ModulesPaginator
-from modules.permissions import IsOwner
+from users.permissions import IsOwner
 from modules.serializers import ModuleSerializer
 
 
@@ -13,9 +12,9 @@ class ModuleCreateAPIView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
-        new_modul = serializer.save()
-        new_modul.owner = self.request.user
-        new_modul.save()
+        new_module = serializer.save()
+        new_module.user = self.request.user
+        new_module.save()
 
 
 class ModuleListAPIView(generics.ListAPIView):
@@ -38,7 +37,7 @@ class ModuleUpdateAPIView(generics.UpdateAPIView):
     permission_classes = [IsOwner]
 
     def get_queryset(self):
-        return Module.objects.filter(owner=self.request.user)
+        return Module.objects.filter(user=self.request.user)
 
 
 class ModuleDestroyAPIView(generics.DestroyAPIView):

@@ -1,42 +1,68 @@
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticated
-
-
-from users.models import User
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from users.permissions import IsUser
-from users.serializer import UserSerializer, UserRegisterSerializer
+from users.models import User
+from users.serializers import UserSerializer
 
 
-class UserListAPIView(generics.ListAPIView):
-    """Представление для просмотра пользователей"""
+class UserCreateAPIView(generics.CreateAPIView):
+    """ Create new user"""
+
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
+    class Meta:
+        model = User
+        fields = '__all__'
 
-class UserCreateAPIView(generics.CreateAPIView):
-    """Представление для создания пользователя"""
-    serializer_class = UserRegisterSerializer
+
+
+class UserListAPIView(generics.ListAPIView):
+    """ Users List """
+
     queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [AllowAny]
+
+    class Meta:
+
+        model = User
+        fields = '__all__'
 
 
 class UserRetrieveAPIView(generics.RetrieveAPIView):
-    """Представление для просмотра одного пользователя"""
+    """ User detail """
+
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsUser]
+
+    class Meta:
+        model = User
+        fields = '__all__'
 
 
 class UserUpdateAPIView(generics.UpdateAPIView):
-    """Представление для обновления пользователя"""
+    """ User update"""
+
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsUser]
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
 
 
 class UserDestroyAPIView(generics.DestroyAPIView):
-    """Представление для удаления пользователя"""
-    serializer_class = UserSerializer
+    """ User delete """
+
     queryset = User.objects.all()
     permission_classes = [IsUser]
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
