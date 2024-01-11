@@ -3,7 +3,7 @@ from modules.models import Module
 
 
 class ModuleSerializer(serializers.ModelSerializer):
-    "Сериализатор для модели Module"
+    """Сериализатор для модели Module"""
 
     class Meta:
         model = Module

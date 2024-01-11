@@ -7,7 +7,7 @@ from modules.serializers import ModuleSerializer
 
 
 class ModuleCreateAPIView(generics.CreateAPIView):
-    "Контролер для создания модуля"
+    """Контролер для создания модуля"""
     serializer_class = ModuleSerializer
     permission_classes = [IsAuthenticated]
 
@@ -18,7 +18,7 @@ class ModuleCreateAPIView(generics.CreateAPIView):
 
 
 class ModuleListAPIView(generics.ListAPIView):
-    "Контролер для просмотра списка модулей"
+    """Контролер для просмотра списка модулей"""
     serializer_class = ModuleSerializer
     queryset = Module.objects.all()
     pagination_class = ModulesPaginator

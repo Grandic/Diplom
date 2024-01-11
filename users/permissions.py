@@ -3,7 +3,7 @@ from rest_framework.permissions import BasePermission
 
 
 class IsUser(permissions.BasePermission):
-    """ Проверка прав пользователя"""
+    """Проверка прав пользователя"""
 
     def has_permission(self, request, view):
         if request.user.is_staff:
@@ -12,7 +12,7 @@ class IsUser(permissions.BasePermission):
 
 
 class IsOwner(BasePermission):
-    """Права доступа для владельца"""
+    """Проверка прав доступа для владельца"""
 
     def has_object_permission(self, request, view, obj):
         return request.user == obj.user

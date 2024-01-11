@@ -6,7 +6,7 @@ from users.serializers import UserSerializer
 
 
 class UserCreateAPIView(generics.CreateAPIView):
-    """ Create new user"""
+    """Create new user"""
 
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -17,9 +17,8 @@ class UserCreateAPIView(generics.CreateAPIView):
         fields = '__all__'
 
 
-
 class UserListAPIView(generics.ListAPIView):
-    """ Users List """
+    """Users List"""
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -32,7 +31,7 @@ class UserListAPIView(generics.ListAPIView):
 
 
 class UserRetrieveAPIView(generics.RetrieveAPIView):
-    """ User detail """
+    """User detail"""
 
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -44,7 +43,7 @@ class UserRetrieveAPIView(generics.RetrieveAPIView):
 
 
 class UserUpdateAPIView(generics.UpdateAPIView):
-    """ User update"""
+    """User update"""
 
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -55,9 +54,8 @@ class UserUpdateAPIView(generics.UpdateAPIView):
         fields = '__all__'
 
 
-
 class UserDestroyAPIView(generics.DestroyAPIView):
-    """ User delete """
+    """User delete"""
 
     queryset = User.objects.all()
     permission_classes = [IsUser]
@@ -65,4 +63,3 @@ class UserDestroyAPIView(generics.DestroyAPIView):
     class Meta:
         model = User
         fields = '__all__'
-

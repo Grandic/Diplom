@@ -1,7 +1,7 @@
 from django.urls import path
-
 from modules.apps import ModulesConfig
-from modules.views import ModuleCreateAPIView, ModuleListAPIView, ModuleRetrieveAPIView, ModuleUpdateAPIView, ModuleDestroyAPIView
+from modules.views import (ModuleCreateAPIView, ModuleListAPIView, ModuleRetrieveAPIView, ModuleUpdateAPIView,
+                           ModuleDestroyAPIView)
 
 app_name = ModulesConfig.name
 
